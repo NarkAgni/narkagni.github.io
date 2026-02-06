@@ -3,92 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Narkagni | Digital Portfolio</title>
+    <title>Narkagni | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #050505; color: #fff; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        
+        body { 
+            background-color: #08080a; 
+            color: #ffffff; 
+            font-family: 'Inter', sans-serif;
+            background-image: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #08080a 100%);
+        }
+
         .bento-card {
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            position: relative;
         }
+
         .bento-card:hover {
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-5px);
+            transform: scale(1.02);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
             background: rgba(255, 255, 255, 0.05);
         }
-        .gradient-text {
-            background: linear-gradient(to right, #fff, #666);
+
+        .glow-text {
+            background: linear-gradient(135-deg, #fff 0%, #a5a5a5 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            transition: 0.3s;
+        }
+
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Animated background stars effect */
+        .stars {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            opacity: 0.5;
+        }
     </style>
 </head>
-<body class="font-sans antialiased">
+<body class="p-4 md:p-8">
 
-    <div class="max-w-5xl mx-auto px-6 py-12 lg:py-24">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            
-            <div class="md:col-span-2 bento-card p-8 rounded-3xl flex flex-col justify-between">
-                <div>
-                    <h1 class="text-5xl font-bold mb-4 gradient-text">Main Narkagni Hoon.</h1>
-                    <p class="text-gray-400 text-lg max-w-md">
-                        Main ek Developer aur Creative Thinker hoon. Mujhe naye ideas ko code mein badalna pasand hai.
-                    </p>
-                </div>
-                <div class="mt-12 flex items-center space-x-4">
-                    <span class="flex h-3 w-3 relative">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                    </span>
-                    <span class="text-sm text-gray-400 font-medium">Currently working on new projects</span>
-                </div>
+    <div class="stars"></div>
+
+    <main class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-4">
+        
+        <div class="md:col-span-3 bento-card p-10 flex flex-col justify-end min-h-[300px] relative">
+            <div class="absolute top-6 right-6">
+                <span class="bg-white/10 px-4 py-1 rounded-full text-xs font-mono border border-white/10 uppercase tracking-widest">Available for Hire</span>
             </div>
-
-            <div class="bento-card p-8 rounded-3xl flex flex-col justify-between">
-                <h3 class="text-xl font-semibold mb-6">Connect</h3>
-                <div class="space-y-4">
-                    <a href="https://github.com/YOUR_USERNAME" class="flex items-center justify-between group">
-                        <span class="text-gray-400 group-hover:text-white transition-colors"><i class="fab fa-github mr-2"></i> GitHub</span>
-                        <i class="fas fa-arrow-up-right-from-square text-xs text-gray-600"></i>
-                    </a>
-                    <a href="https://twitter.com/YOUR_USERNAME" class="flex items-center justify-between group">
-                        <span class="text-gray-400 group-hover:text-white transition-colors"><i class="fab fa-twitter mr-2"></i> Twitter (X)</span>
-                        <i class="fas fa-arrow-up-right-from-square text-xs text-gray-600"></i>
-                    </a>
-                    <a href="mailto:hello@narkagni.in" class="flex items-center justify-between group">
-                        <span class="text-gray-400 group-hover:text-white transition-colors"><i class="fas fa-envelope mr-2"></i> Email</span>
-                        <i class="fas fa-arrow-up-right-from-square text-xs text-gray-600"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="bento-card p-8 rounded-3xl">
-                <h3 class="text-gray-500 uppercase text-xs font-bold tracking-widest mb-4">Tech Stack</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="bg-white/5 px-3 py-1 rounded-full text-sm border border-white/10">React</span>
-                    <span class="bg-white/5 px-3 py-1 rounded-full text-sm border border-white/10">Python</span>
-                    <span class="bg-white/5 px-3 py-1 rounded-full text-sm border border-white/10">Tailwind</span>
-                    <span class="bg-white/5 px-3 py-1 rounded-full text-sm border border-white/10">Git</span>
-                </div>
-            </div>
-
-            <div class="bento-card p-8 rounded-3xl md:col-span-1">
-                <h3 class="text-xl font-semibold mb-2">Projects</h3>
-                <p class="text-gray-500 text-sm">Check out what I've been building lately on GitHub.</p>
-            </div>
-
-            <div class="bento-card p-8 rounded-3xl md:col-span-1 flex items-center justify-center text-center">
-               <p class="text-2xl font-bold">narkagni.in</p>
-            </div>
-
+            <h1 class="text-6xl font-extrabold mb-4 glow-text">Main Narkagni Hoon.</h1>
+            <p class="text-gray-400 text-xl max-w-xl">Building digital experiences that matter. Full-stack dev by day, creative explorer by night.</p>
         </div>
 
-        <footer class="mt-12 text-center text-gray-600 text-sm">
-            &copy; 2026 Narkagni. Built with <i class="fas fa-heart text-red-800"></i> using GitHub Pages.
-        </footer>
-    </div>
+        <div class="bento-card p-8 flex flex-col justify-between">
+            <h3 class="text-lg font-semibold text-gray-400 italic">Socials</h3>
+            <div class="space-y-4">
+                <a href="https://github.com/YOUR_USERNAME" class="flex items-center space-x-3 text-2xl hover:text-purple-400 transition-all">
+                    <i class="fab fa-github"></i> <span class="text-sm font-medium uppercase tracking-tighter">Github</span>
+                </a>
+                <a href="https://twitter.com/YOUR_USERNAME" class="flex items-center space-x-3 text-2xl hover:text-blue-400 transition-all">
+                    <i class="fab fa-twitter"></i> <span class="text-sm font-medium uppercase tracking-tighter">Twitter</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="md:col-span-2 bento-card group">
+            <div class="h-48 bg-gradient-to-br from-indigo-900 to-purple-900 flex items-center justify-center overflow-hidden">
+                <i class="fas fa-code text-6xl text-white/20 group-hover:scale-110 transition-transform"></i>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Featured Project</h3>
+                <p class="text-gray-500 text-sm mb-4">Ek mast description yahan likhein jo aapke kaam ko dikhaye.</p>
+                <button class="btn-glass px-6 py-2 rounded-xl text-sm font-bold">View Case Study</button>
+            </div>
+        </div>
+
+        <div class="bento-card p-8">
+            <h3 class="text-gray-500 text-xs font-bold uppercase mb-6 tracking-widest">Tech Stack</h3>
+            <div class="flex flex-wrap gap-2">
+                <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-lg text-xs">React</span>
+                <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-lg text-xs">Node.js</span>
+                <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-lg text-xs">Python</span>
+                <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-lg text-xs">Tailwind</span>
+                <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-lg text-xs">AWS</span>
+            </div>
+        </div>
+
+        <div class="bento-card p-8 flex items-center justify-center bg-white/5">
+            <p class="text-center italic text-gray-400 italic font-light">"Code is like humor. When you have to explain it, it’s bad."</p>
+        </div>
+
+    </main>
+
+    <footer class="text-center mt-12 text-gray-600 text-xs tracking-[0.2em] uppercase">
+        NARKAGNI.IN &copy; 2026
+    </footer>
 
 </body>
 </html>
